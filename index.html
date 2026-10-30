@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopora — Everyday Shopping Made Easy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a class="logo" href="#">
+    <span class="logo-icon">S</span> shopora<span class="logo-dot">.</span>
+  </a>
+
+  <div class="delivery">
+    <span>⌖</span>
+    <div><small>Deliver to</small><strong>India</strong></div>
+  </div>
+
+  <form class="search" id="searchForm">
+    <select id="categoryFilter" aria-label="Category">
+      <option value="all">All</option>
+      <option value="Electronics">Electronics</option>
+      <option value="Fashion">Fashion</option>
+      <option value="Home">Home</option>
+      <option value="Accessories">Accessories</option>
+    </select>
+    <input id="searchInput" type="search"
+      placeholder="Search products, brands and more..." autocomplete="off">
+    <button type="submit" aria-label="Search">⌕</button>
+  </form>
+
+  <div class="header-actions">
+    <button class="account-btn" id="accountBtn">
+      <span>♙</span>
+      <div><small>Hello, shopper</small><strong>Account</strong></div>
+    </button>
+    <button class="cart-btn" id="cartToggle">
+      <span>🛒</span> Cart <b id="cartCount">0</b>
+    </button>
+  </div>
+</header>
+
+<nav class="category-nav">
+  <a href="#products" data-cat="all" class="selected">All Products</a>
+  <a href="#products" data-cat="Electronics">Electronics</a>
+  <a href="#products" data-cat="Fashion">Fashion</a>
+  <a href="#products" data-cat="Home">Home & Living</a>
+  <a href="#products" data-cat="Accessories">Accessories</a>
+  <a href="#deals">Today's Deals</a>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="hero-kicker">THE EVERYDAY SHOPPING DESTINATION</div>
+      <h1>Find your next<br><em>favourite thing.</em></h1>
+      <p>
+        Discover useful products, explore categories and enjoy a smooth
+        shopping experience — all in one place.
+      </p>
+      <a class="hero-btn" href="#products">Explore products →</a>
+      <div class="hero-perks">
+        <span>✓ Easy shopping</span>
+        <span>✓ Secure demo checkout</span>
+        <span>✓ Great finds</span>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <img
+        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=85"
+        alt="Lifestyle shopping collection"
+        class="hero-banner-image">
+      <div class="hero-sticker">GOOD<br>FINDS<br><b>HERE.</b></div>
+    </div>
+  </section>
+
+  <section class="trust-strip">
+    <div><b>✦</b><span>Curated product picks</span></div>
+    <div><b>↗</b><span>Simple product search</span></div>
+    <div><b>♡</b><span>Cart made effortless</span></div>
+    <div><b>✓</b><span>Easy demo checkout</span></div>
+  </section>
+
+  <section class="products-section" id="products">
+    <div class="section-top">
+      <div>
+        <div class="eyebrow">THE SHOP</div>
+        <h2>Explore <span>products.</span></h2>
+        <p>Find something you'll love.</p>
+      </div>
+
+      <div class="sort-wrap">
+        <label for="sortSelect">Sort by</label>
+        <select id="sortSelect">
+          <option value="featured">Featured</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filter-chips" id="filterChips">
+      <button class="chip active" data-cat="all">All items</button>
+      <button class="chip" data-cat="Electronics">Electronics</button>
+      <button class="chip" data-cat="Fashion">Fashion</button>
+      <button class="chip" data-cat="Home">Home & Living</button>
+      <button class="chip" data-cat="Accessories">Accessories</button>
+    </div>
+
+    <div class="result-line">
+      <span id="resultCount">Showing all products</span>
+      <button id="clearSearch" class="clear-btn">Clear filters ×</button>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+
+    <div class="empty-state" id="emptyState" hidden>
+      <div>⌕</div>
+      <h3>No products found</h3>
+      <p>Try another search or category.</p>
+      <button class="hero-btn" id="resetSearch">Show all products</button>
+    </div>
+  </section>
+
+  <section class="deal-banner" id="deals">
+    <div>
+      <div class="eyebrow">A LITTLE SOMETHING FOR YOU</div>
+      <h2>Good things.<br><span>Better shopping.</span></h2>
+      <p>Browse the collection and find your next everyday essential.</p>
+      <a href="#products">Shop the collection →</a>
+    </div>
+    <div class="deal-photo">
+      <img
+        src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=85"
+        alt="Modern shopping store">
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="logo" href="#">
+    <span class="logo-icon">S</span> shopora<span class="logo-dot">.</span>
+  </a>
+  <p>A student e-commerce website project built with HTML, CSS and JavaScript.</p>
+  <span>© 2026 Shopora · Demo store</span>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <div>
+      <small>YOUR SHOPPING BAG</small>
+      <h2>My Cart <span id="drawerCount">(0)</span></h2>
+    </div>
+    <button id="closeCart" class="close-btn">×</button>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+
+  <div class="cart-bottom">
+    <div class="subtotal">
+      <span>Subtotal</span>
+      <strong id="subtotal">₹0</strong>
+    </div>
+    <p>Shipping and taxes calculated at checkout.</p>
+    <button class="checkout-btn" id="checkoutBtn">Proceed to checkout →</button>
+    <button class="continue-btn" id="continueShopping">Continue shopping</button>
+  </div>
+</aside>
+
+<div class="modal-backdrop" id="checkoutModal">
+  <div class="checkout-modal">
+    <button class="close-btn modal-close" id="closeCheckout">×</button>
+    <div class="eyebrow">ALMOST THERE</div>
+    <h2>Complete your <span>order.</span></h2>
+    <p class="modal-intro">Enter delivery details to place your demo order.</p>
+
+    <form id="checkoutForm">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="customerName">FULL NAME</label>
+          <input id="customerName" required placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label for="customerPhone">PHONE NUMBER</label>
+          <input id="customerPhone" required inputmode="numeric"
+            pattern="[0-9]{10}" maxlength="10"
+            placeholder="10-digit mobile number">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="customerEmail">EMAIL ADDRESS</label>
+        <input id="customerEmail" type="email" required
+          placeholder="you@example.com">
+      </div>
+
+      <div class="form-field">
+        <label for="customerAddress">DELIVERY ADDRESS</label>
+        <textarea id="customerAddress" required rows="3"
+          placeholder="House no., street, city, state, PIN code"></textarea>
+      </div>
+
+      <div class="payment-note">
+        <span>◉</span>
+        <div>
+          <strong>Cash on Delivery (Demo)</strong>
+          <small>No real payment will be collected.</small>
+        </div>
+      </div>
+
+      <div class="checkout-total">
+        <span>Order total</span>
+        <strong id="checkoutTotal">₹0</strong>
+      </div>
+
+      <button class="checkout-btn" type="submit">Place order →</button>
+    </form>
+  </div>
+</div>
+
+<div class="success-modal" id="successModal">
+  <div class="success-card">
+    <div class="success-icon">✓</div>
+    <div class="eyebrow">ORDER PLACED</div>
+    <h2>Thank you for<br><span>your order!</span></h2>
+    <p id="successText">Your demo order has been created.</p>
+    <button class="checkout-btn" id="doneBtn">Continue shopping</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
